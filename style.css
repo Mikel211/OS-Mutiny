@@ -1,0 +1,173 @@
+/* ==========================================================================
+   OS.MUTINY V2.0 - STYLESHEET
+   THÈME : Y3K Glassmorphism x Acid Graphix x Brutalist (BMTH) Synthèse
+   ========================================================================== */
+
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --bg-dark: #050507;
+    --neon-blue: #00f3ff;
+    --neon-green: #00ff41;
+    --danger-red: #ff003c;
+    --glass-bg: rgba(15, 15, 20, 0.4);
+    --glass-border: rgba(0, 243, 255, 0.2);
+}
+
+/* --- CLASSE UTILITAIRE ESSENTIELLE --- */
+.hidden {
+    display: none !important;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-dark);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at center, #0a1118 0%, var(--bg-dark) 100%);
+    overflow-x: hidden; 
+}
+
+
+/* --- 2. TYPOGRAPHIES V2 --- */
+/* Police Brutaliste Massive (Style BMTH) */
+.sigil-font {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* Police Console Monochrome (Style Y2K Terminal) */
+.mono-font {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+}
+
+
+/* --- 3. ÉCRAN DE BOOT (Texte vert) --- */
+.boot-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: #000; z-index: 99999;
+    display: flex; justify-content: center; align-items: center;
+    color: var(--neon-green); transition: opacity 0.8s ease-out;
+}
+.boot-screen.hidden { opacity: 0; pointer-events: none; }
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
+
+
+/* --- 4. EFFETS VISUELS GLOBAUX (ACID GRAPHIX V2) --- */
+.noise-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; opacity: 0.05; filter: url(#noise); z-index: 9000;
+}
+
+
+/* --- 5. COMPOSANTS GLASSMORPHISM V2 --- */
+.glass-window {
+    background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); margin-bottom: 20px;
+}
+.window-titlebar {
+    background: rgba(0, 0, 0, 0.6); border-bottom: 1px solid var(--glass-border);
+    padding: 5px 10px; display: flex; justify-content: space-between;
+    font-family: 'Share Tech Mono', monospace; color: var(--neon-blue); font-size: 0.8rem;
+}
+.window-content { padding: 15px; }
+
+
+/* --- 6. NOUVEAU HUB DE NAVIGATION (Brutaliste) --- */
+.main-hub {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    width: 100%; max-width: 900px; margin: 60px auto; min-height: 400px;
+    padding: 20px; text-align: center; border-radius: 4px;
+}
+.main-hub.hidden { display: none; }
+
+.hub-nav {
+    display: flex; flex-direction: column; gap: 20px;
+    width: 100%; max-width: 600px;
+}
+.nav-btn {
+    font-size: 1.6rem; color: #fff; text-decoration: none;
+    background: transparent; border: 1px solid transparent; padding: 10px;
+    transition: all 0.3s;
+}
+.nav-btn:hover {
+    color: var(--neon-blue); background: rgba(0,243,255,0.05); text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.hub-watermark {
+    position: absolute; bottom: 20px; right: 20px; font-size: 0.9rem;
+    color: rgba(255,255,255,0.1); pointer-events: none;
+}
+
+
+/* --- 7. ZONE D'AFFICHAGE (SOUS-MENUS) --- */
+.grid-container {
+    padding: 20px; max-width: 1200px; margin: 0 auto; width: 100%;
+}
+.grid-container.hidden { display: none; }
+.crew-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.full-width { width: 100%; }
+.card { width: 320px; }
+
+
+/* --- 8. SOUS-MENU ART & RÉSEAUX --- */
+.tab-btn {
+    background: transparent; border: 1px solid transparent; color: #888;
+    cursor: pointer; letter-spacing: 2px; transition: all 0.3s;
+}
+.tab-btn:hover { color: #fff; }
+.tab-btn.active { color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); }
+
+.scanner-display {
+    position: relative; width: 100%; height: 400px; overflow: hidden;
+    border: 1px solid var(--glass-border); background: #000;
+}
+.acid-filter {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block; filter: sepia(30%) hue-rotate(170deg) brightness(110%) contrast(110%);
+    transition: filter 0.5s;
+}
+.scanlines {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+}
+
+.socials-content { display: flex; flex-direction: column; gap: 15px; }
+.social-link {
+    font-size: 1rem; color: #fff; text-decoration: none; padding: 10px;
+    border: 1px Dashed rgba(255,255,255,0.1);
+}
+.social-link:hover {
+    color: var(--neon-blue); border-color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue);
+}
+.wire-arrow { margin-left: 10px; font-weight: normal; }
+
+
+/* --- 9. JAUGES ANIMÉES & SLIDERS --- */
+.gauge-track { background: rgba(0,0,0,0.8); height: 8px; border: 1px solid rgba(255,255,255,0.1); margin-top: 5px; }
+.gauge-fill { height: 100%; width: 0%; transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1); }
+input[type="range"] { background: rgba(255, 255, 255, 0.1); height: 2px; outline: none; -webkit-appearance: none; }
+
+
+/* --- 10. ANIMATIONS MUTINERIE/SURCHAUFFE (ADAPTÉES GLASSMORPHISM) --- */
+@keyframes glass-mutiny {
+    0% { border-color: var(--glass-border); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5); }
+    50% { border-color: var(--danger-red); box-shadow: 0 0 30px rgba(255,0,60,0.4); background: rgba(255,0,60,0.1); }
+    100% { border-color: var(--glass-border); box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5); }
+}
+.warning-active { animation: glass-mutiny 1s infinite; }
+@keyframes fire-glow { 0% { text-shadow: 0 0 5px #ff4500; } 50% { text-shadow: 0 0 20px #ff8c00, 0 0 30px #ff0000; color: #fff; } 100% { text-shadow: 0 0 5px #ff4500; } }
+.fire-text { color: #ff4500; animation: fire-glow 1s infinite; }
+
+
+/* --- 11. CONSOLE Monochrome Y2K --- */
+.bottom-console { margin-top: auto; border-radius: 0; margin-bottom: 0; height: 120px; overflow-y: auto; }
+.bottom-console ul { color: var(--neon-blue); list-style: none; }
+.bottom-console li { margin-bottom: 5px; }
+.btn-close { color: var(--danger-red); cursor: pointer; }

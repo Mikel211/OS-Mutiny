@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS.MUTINY // V2.0 - [HUB]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <svg style="display:none;">
+        <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter>
+    </svg>
+    <div class="noise-overlay"></div>
+
+    <div id="boot-screen" class="boot-screen mono-font">
+        <div>
+            <p>S Y S T E M_B O O T_S E Q U E N C E...</p>
+            <p>LOADING KERNEL MODULES... OK</p>
+            <p>DÉCRYPTAGE DES ARCHIVES... OK</p>
+            <p>ANALYSE PSYCHOLOGIQUE ÉQUIPAGE... OK</p>
+            <p class="blink" style="margin-top: 20px;">> CONNEXION IMMINENTE_</p>
+        </div>
+    </div>
+
+    <div id="main-hub" class="main-hub glass-window hidden">
+        <div class="window-titlebar"><span>[OS.MUTINY // V2.0 // HUB_NAV_SEQ]</span></div>
+        
+        <div class="hub-nav sigil-font">
+            <a href="#" class="nav-btn" onclick="showSubMenu('crew')">INDEX.01 // [P3RSO // W1KI]</a>
+            <a href="#" class="nav-btn" onclick="showSubMenu('art')">INDEX.02 // [DE_SSIN // ART]</a>
+        </div>
+
+        <div class="hub-socials mono-font" style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; z-index: 10;">
+            <a href="https://instagram.com/mikel_gth" target="_blank" class="social-link sigil-font">I N S T 4 <i class="wire-arrow">→</i></a>
+            <a href="https://github.com/mikel_gth" target="_blank" class="social-link sigil-font">G 1 T H U B <i class="wire-arrow">→</i></a>
+        </div>
+
+        <div class="hub-watermark sigil-font">S Y S . M U T 1 N Y</div>
+    </div>
+
+    <main id="display-container" class="grid-container hidden">
+        
+        <section id="scanner-view" class="glass-window full-width hidden">
+            <div class="window-titlebar">
+                <span>[DE_SSIN // ART_S C A N N 3 R]</span>
+                <span class="btn-close" onclick="closeView('scanner')">[X] R E T 0 U R</span>
+            </div>
+            <div class="window-content">
+                <div class="tabs-container sigil-font">
+                    <button class="tab-btn active" onclick="switchTab(this, 'images/bateau.jpg')">N 4 V I R 3</button>
+                    <button class="tab-btn" onclick="switchTab(this, 'images/chevalier_blanc.jpg')">P 4 L 4 D I N</button>
+                    <button class="tab-btn" onclick="switchTab(this, 'images/chevalier_noir.jpg')">C 4 V 4 L 1 3 R</button>
+                </div>
+                <div class="scanner-display">
+                    <img id="art-image" src="images/bateau.jpg" alt="Art Scan" class="acid-filter">
+                    <div class="scanlines"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="crew-view" class="full-width hidden">
+            
+            <div class="window-titlebar glass-window" style="margin-bottom: 20px;">
+                <span>[ S Y S . D 4 T 4 // C R 3 W ]</span>
+                <span class="btn-close" onclick="closeView('crew')">[X] R E T 0 U R</span>
+            </div>
+
+            <div id="nathaniel-target" style="display: flex; justify-content: center; width: 100%; margin-bottom: 30px;"></div>
+            
+            <div id="crew-grid" class="crew-grid"></div>
+
+        </section>
+
+    </main>
+
+    <footer id="console-window" class="glass-window bottom-console hidden">
+        <div class="window-titlebar"><span>C:\SYS\L0GS>_</span></div>
+        <ul id="terminal-logs" class="mono-font"></ul>
+    </footer>
+
+    <script src="script.js"></script>
+
+    </main>
+
+    <footer id="console-window" class="glass-window bottom-console hidden">
+        <div class="window-titlebar"><span>C:\SYS\L0GS>_</span></div>
+        <ul id="terminal-logs" class="mono-font"></ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
